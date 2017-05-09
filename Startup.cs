@@ -77,7 +77,7 @@ namespace StockWebApi
                     .AddScoped<IFactory<string, IGetByKeyRepo<Share,string>>, DBShareRepoFactory>()
                     .AddScoped<IFactory<string, IGetByKeyRepo<Statistic,string>>, DBStatisticRepoFactory>()
                     .AddScoped<IFactory<string, IGetByKeyRepo<Price,string>>, DBPriceRepoFactory>()
-                    .AddScoped<IFactory<string, IGetByKeyRepo<QuoteGroup,string>>, DBQuoteGroupRepoFactory>()                                        
+                    .AddScoped<IFactory<string, IGetByKeyRepo<QuoteGroup,string>>, DBQuoteGroupRepoFactory>()                                   
                     .AddScoped<IFactory<string, IGetByFuncRepo<string,StockCoreCache<Stock>>>, DBCacheRepoFactory<Stock>>()
                     .AddScoped<IFactory<string, IGetByFuncRepo<string,StockCoreCache<IEnumerable<QuoteGroup>>>>, DBCacheRepoFactory<IEnumerable<QuoteGroup>>>()
                     .AddScoped<IFactory<string, IGetByFuncRepo<string,StockCoreCache<IEnumerable<Stock>>>>, DBCacheRepoFactory<IEnumerable<Stock>>>()

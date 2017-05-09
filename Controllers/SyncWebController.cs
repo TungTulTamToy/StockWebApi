@@ -54,7 +54,7 @@ namespace StockWebApi.Controllers
             {
                 var tracer=new Tracer().Load(0,null,"Start Sync All Web from WebApi",TraceSource.TraceSourceName.WebApi);
                 var syncAll = syncAllFactory.Build(null);
-                var quotes = Enum.GetNames(typeof(Quotes.QuotesSample2));
+                var quotes = Enum.GetNames(typeof(Quotes.QuotesSampleV1));
                 await syncAll.OperateAsync(quotes);
             }
         }

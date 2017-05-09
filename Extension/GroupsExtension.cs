@@ -7,7 +7,7 @@ namespace StockWebApi.Extension
 {
     public static class GroupsExtension
     {
-        public static Groups Load(this Groups item,IEnumerable<QuoteGroup> items)
+        public static Groups Load(this Groups item,IEnumerable<IQuoteGroup> items)
         {
             if(items!=null && items.Any())
             {
