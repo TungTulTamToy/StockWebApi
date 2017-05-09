@@ -85,6 +85,7 @@ namespace StockWebApi
                     .AddScoped<IFactory<string, IBuilder<string, Stock>>, StockBuilderFactory>()
                     .AddScoped<IFactory<string, IBuilder<string, IEnumerable<QuoteGroup>>>, AllQuoteGroupBuilderFactory>()
                     .AddScoped<IFactory<string, IBuilder<string, IEnumerable<Stock>>>, StockByGroupBuilderFactory>()
+                    .AddScoped<IFactory<string, IBuilder<IEnumerable<Price>, IEnumerable<PriceCal>>>, PriceCalBuilderFactory>()
 
                     .AddScoped<IMongoDatabaseWrapper,MongoDatabaseWrapper>()
                     .AddScoped<IMongoClient>(ctx => new MongoClient(ctx.GetService<IConfigurationRoot>().GetSection("MongoConnection:ConnectionString").Value))    
