@@ -40,6 +40,8 @@ namespace StockWebApi
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile("module.json", optional: false, reloadOnChange: true)
+                .AddJsonFile("dynamicgroup.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
@@ -56,7 +58,8 @@ namespace StockWebApi
             //services.AddLogging();
             services.AddSingleton<ILogger>(ctx=>ctx.GetService<ILogger<Program>>());
             services.AddSingleton<IConfigProvider, StockCore.Provider.ConfigurationProvider>()
-                    .AddSingleton<IConfigReader, ModuleConfigReader>()
+                    .AddSingleton<IConfigReader<IModule>, ModuleConfigReader>()
+                    .AddSingleton<IConfigReader<IDynamicGroup>,DynamicGroupReader>()
                     .AddSingleton<IConfigurationRoot>(_=>Configuration)
 
                     .AddScoped<IFactory<SyncAllFactoryCondition, IOperation<IEnumerable<string>>>, SyncAllFactory>()
