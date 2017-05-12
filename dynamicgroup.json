@@ -10,12 +10,12 @@
     "ReferenceGroup":"All",
     "Criteria":"MovingAverage.Hist < 0 && PriceCal.Any(p=>p.Name==\"6M\" && p.DiffAvg < -5)"
   },{
-    "Name":"Over buy",
+    "Name":"Over sold",
     "IsActive":true,
     "ReferenceGroup":"All",
     "Criteria":"PriceCal.Any(p=>p.Name==\"6M\" && p.DiffAvg > 8)"
   },{
-    "Name":"Over sold",
+    "Name":"Over buy",
     "IsActive":true,
     "ReferenceGroup":"All",
     "Criteria":"PriceCal.Any(p=>p.Name==\"6M\" && p.DiffAvg < -8)"
