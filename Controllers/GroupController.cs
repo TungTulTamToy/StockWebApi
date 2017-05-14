@@ -38,7 +38,7 @@ namespace StockWebApi.Controllers
         }
         [HttpGet("{qroup}")]
         [EnableCors("SiteCorsPolicy")]
-        public async Task<Data<StockInfo>> GetStockByGroupAsync(string qroup,string requestID=null)
+        public async Task<Data<StockContent>> GetStockByGroupAsync(string qroup,string requestID=null)
         {
             return await baseControllerBuildAsync(
                 buildAsync:async ()=> await buildGetStockByGroupAsync(qroup),
@@ -56,15 +56,15 @@ namespace StockWebApi.Controllers
             }
             return item;
         }
-        private async Task<StockInfo> buildGetStockByGroupAsync(string groupName,[CallerMemberName]string methodName="")
+        private async Task<StockContent> buildGetStockByGroupAsync(string groupName,[CallerMemberName]string methodName="")
         {
-            StockInfo item = null;
+            StockContent item = null;
             using(var factory = stockByGroupBuilderFactory)
             {
                 var tracer = new Tracer().Load(PROCESSID,null,$"{this.GetType().Name}.{methodName}",TraceSourceName.WebApi);
                 var stockByGroupBuilder = stockByGroupBuilderFactory.Build(tracer);
                 var deCollection = await stockByGroupBuilder.BuildAsync(groupName);
-                item = new StockInfo().Load(deCollection);
+                item = new StockContent().Load(deCollection);
             }
             return item;  
         }

@@ -43,6 +43,19 @@
     }
   },
   {
+    "Key":"Aop.SyncQuoteMovement",
+    "IsActive":true,
+    "Monitoring":{
+      "Key":"Mon.SyncQuoteMovement",
+      "IsActive":true,
+      "ShowParams":false,
+      "ShowResult":false,
+      "PerformanceMeasurement":true,
+      "ThrowException":true,
+      "LogTrace":true
+    }
+  },
+  {
     "Key":"Aop.SyncPrice",
     "IsActive":true,
     "Monitoring":{
@@ -415,6 +428,50 @@
     }
   },
   {
+    "Key":"Aop.DBQuoteMovementRepo",
+    "IsActive":true,
+    "Monitoring":{
+      "Key":"Mon.DBQuoteMovementRepo",
+      "IsActive":true,
+      "ShowParams":false,
+      "ShowResult":false,
+      "PerformanceMeasurement":true,
+      "ThrowException":true,
+      "LogTrace":true,
+      "ShowCount":true,
+      "Actions":[{
+        "Key":"GetByKeyAsync",
+        "IsActive":true,
+        "ShowParams":true,
+        "ShowResult":false,
+        "PerformanceMeasurement":true,
+        "ThrowException":true,
+        "LogTrace":true,
+        "ShowCount":true
+      },
+      {
+        "Key":"BatchInsertAsync",
+        "IsActive":true,
+        "ShowParams":false,
+        "ShowResult":false,
+        "PerformanceMeasurement":true,
+        "ThrowException":true,
+        "LogTrace":true,
+        "ShowCount":true
+      },
+      {
+        "Key":"BatchUpdateAsync",
+        "IsActive":true,
+        "ShowParams":false,
+        "ShowResult":false,
+        "PerformanceMeasurement":true,
+        "ThrowException":true,
+        "LogTrace":true,
+        "ShowCount":true
+      }]
+    }
+  },
+  {
     "Key":"Aop.DBStatisticRepo",
     "IsActive":true,
     "Monitoring":{
@@ -487,7 +544,7 @@
     "Cache":{
       "Key":"Cache.StockBuilder",
       "IsActive":true,
-      "MinuteToExpire":1440
+      "MinuteToExpire":60
     }
   },
   {
@@ -505,7 +562,7 @@
     "Cache":{
       "Key":"Cache.AllQuoteGroupBuilder",
       "IsActive":true,
-      "MinuteToExpire":1440
+      "MinuteToExpire":60
     },
     "Chain":{
       "Key":"Chain.AllQuoteGroupBuilder",
@@ -527,7 +584,7 @@
     "Cache":{
       "Key":"Cache.StockByGroupBuilder",
       "IsActive":true,
-      "MinuteToExpire":1440
+      "MinuteToExpire":60
     },
     "Chain":{
       "Key":"Chain.StockByGroupBuilder",

@@ -7,7 +7,7 @@ namespace StockWebApi.Extension
 {
     public static class StockInfoExtension
     {
-        public static StockInfo Load(this StockInfo item,IEnumerable<Stock> items)
+        public static StockContent Load(this StockContent item,IEnumerable<Stock> items)
         {
             if(items!=null && items.Any())  
             {
